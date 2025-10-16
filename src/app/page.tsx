@@ -1,103 +1,107 @@
-import Image from "next/image";
+import Link from "next/link";
+import { PayPalProvider, SubscriptionButton, SUBSCRIPTION_PLANS } from "@/index";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <PayPalProvider>
+      <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6 sm:p-10">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            PayPal Next.js Template Demo
+          </h1>
+          <p className="mt-3 text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+            Complete PayPal subscription integration for Next.js applications
+          </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="mt-12 flex justify-center">
+            <div className="w-full max-w-sm">
+              <div className="p-8 rounded-2xl border-2 border-blue-500 text-white shadow-xl">
+                <div className="absolute inset-0 bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500 animate-gradient-move bg-[length:200%_200%] rounded-xl"></div>
+                <div className="absolute inset-0 bg-black/20 dark:bg-black/30 rounded-2xl"></div>
+
+                <div className="relative z-10">
+                  <h5 className="mb-2 text-2xl font-semibold">
+                    Pro Plan
+                  </h5>
+                  <p className="mb-6 opacity-90">
+                    Full access to all features
+                  </p>
+                  <div className="flex items-end justify-center">
+                    <span className="text-4xl font-bold">
+                      $10
+                    </span>
+                    <span className="ml-1 text-lg opacity-90">
+                      /month
+                    </span>
+                  </div>
+                  <ul className="space-y-3 my-8 text-sm sm:text-base">
+                    <li className="flex items-center">
+                      ✔{" "}
+                      <span className="ml-3">
+                        100 threads per month
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      ✔{" "}
+                      <span className="ml-3">
+                        Premium features
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      ✔{" "}
+                      <span className="ml-3">
+                        Email support
+                      </span>
+                    </li>
+                  </ul>
+
+                  <div className="flex justify-center">
+                    <SubscriptionButton
+                      plan={SUBSCRIPTION_PLANS[0]}
+                      userId="demo-user-123"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 space-y-4">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Features
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                <h3 className="text-lg font-semibold mb-2">Complete Integration</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Full PayPal subscription lifecycle with webhooks, trials, and billing management.
+                </p>
+              </div>
+              <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                <h3 className="text-lg font-semibold mb-2">TypeScript Support</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Fully typed with comprehensive interfaces for PayPal APIs and subscriptions.
+                </p>
+              </div>
+              <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                <h3 className="text-lg font-semibold mb-2">Database Agnostic</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Works with any database - examples included for Supabase, Prisma, and more.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12">
+            <Link
+              href="/billing"
+              className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              View Billing Demo →
+            </Link>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </PayPalProvider>
   );
 }
