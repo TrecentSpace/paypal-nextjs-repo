@@ -18,7 +18,7 @@ A complete PayPal subscription integration template for Next.js + TypeScript app
 ### 1. Clone and Install
 
 ```bash
-npx create-next-app@latest my-app --template paypal-nextjs-template
+git clone https://github.com/TrecentTrillionaire/paypal-nextjs-repo.git my-app
 cd my-app
 npm install
 ```
