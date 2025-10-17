@@ -29,7 +29,8 @@ export default function SubscriptionButton({ plan, userId }: SubscriptionButtonP
 	};
 
 	return (
-		<PayPalButtons
+		<div>
+			<PayPalButtons
 			createSubscription={async (data, actions) => {
 				setIsLoading(true);
 				try {
@@ -53,22 +54,22 @@ export default function SubscriptionButton({ plan, userId }: SubscriptionButtonP
 				}
 			}}
 			onApprove={async (data, actions) => {
-				try {
-					toast.success("Subscription successful!");
-					if (userId) {
-						await StoreSubscription({
-							user_id: userId,
-							paypal_subscription_id: data.subscriptionID!
-						});
-					}
-					router.push(
-						`/success?subscriptionId=${data.subscriptionID}`
-					);
-				} catch (error) {
-					console.error("Error processing subscription:", error);
-					toast.error("Error processing subscription");
-				}
-			}}
+	try {
+		toast.success("Subscription successful!");
+		if (userId) {
+			await StoreSubscription({
+				user_id: userId,
+				paypal_subscription_id: data.subscriptionID!
+			});
+		}
+		router.push(
+			`/success?subscriptionId=${data.subscriptionID}`
+		);
+	} catch (error) {
+		console.error("Error processing subscription:", error);
+		toast.error("Error processing subscription");
+	}
+}}
 			onError={(err) => {
 				console.error("PayPal error details:", {
 					message: err.message,
@@ -81,13 +82,14 @@ export default function SubscriptionButton({ plan, userId }: SubscriptionButtonP
 				toast.error("Subscription cancelled");
 			}}
 			style={{
-				layout: "vertical",
-				color: "gold",
-				shape: "rect",
-				label: "subscribe",
-				borderRadius: 15,
-			}}
+	layout: "vertical",
+	color: "gold",
+	shape: "rect",
+	label: "subscribe",
+	borderRadius: 15,
+}}
 			disabled={isLoading}
 		/>
+		</div>
 	);
 }

@@ -2,6 +2,8 @@
 
 A complete PayPal subscription integration template for Next.js + TypeScript applications. This template provides everything you need to integrate PayPal subscriptions into your SaaS application, including trial periods, webhooks, billing management, and usage tracking.
 
+Big thanks to [aswinzz's paypal-nextjs-boilerplate](https://github.com/aswinzz/paypal-nextjs-boilerplate), it gave me the idea to make a template with additional features.
+
 ## Features
 
 - ✅ **Complete PayPal Integration**: Subscriptions, payments, and webhooks
