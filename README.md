@@ -20,7 +20,7 @@ Big thanks to [aswinzz's paypal-nextjs-boilerplate](https://github.com/aswinzz/p
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/TrecentTrillionaire/paypal-nextjs-repo.git my-app
+git clone https://github.com/TrecentSpace/paypal-nextjs-repo.git my-app
 cd my-app
 npm install
 ```
