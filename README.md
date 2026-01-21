@@ -58,8 +58,6 @@ This template is database-agnostic. Choose your preferred database and implement
 Example implementations for popular databases:
 
 - **Supabase**: See `examples/supabase/`
-- **Prisma + PostgreSQL**: See `examples/prisma/`
-- **MongoDB**: See `examples/mongodb/`
 
 ### 4. PayPal Setup
 
